@@ -1,0 +1,22 @@
+﻿@model Hats
+
+<h2>Update @Model.HatsTeamLocation @Model.HatsTeamName</h2>
+
+@using (Html.BeginForm("UpdateHatToDatabase", "Hats", "Post"))
+{
+    <input asp-for="idHats" type="hidden" value="@Model.idHats" />
+
+    <label asp-for="HatsTeamLocation" class="control-label">Location</label>
+    <input type="text" name="HatsTeamLocation" class="form-control" value="@Model.HatsTeamLocation" />
+
+    <label asp-for="HatsTeamName" class="control-label">Name</label>
+    <input type="text" name="HatsTeamName" class="form-control" value="@Model.HatsTeamName" />
+    
+    <label asp-for="PrimaryColor" class="control-label">Primary Color</label>
+    <input type="text" name="PrimaryColor" class="form-control" value="@Model.PrimaryColor" />
+
+    <label asp-for="SecondaryColor" class="control-label">Secondary Color</label>
+    <input type="text" name="SecondaryColor" class="form-control" value="@Model.SecondaryColor" />
+
+    <input type="submit" value="Update Product" class="btn btn-primary" />
+}

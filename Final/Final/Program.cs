@@ -1,3 +1,8 @@
+using System.Data;
+using MySql.Data.MySqlClient;
+using Microsoft.Extensions.Hosting;
+
+
 namespace Final
 {
     public class Program
@@ -8,6 +13,15 @@ namespace Final
 
             // Add services to the container.
             builder.Services.AddControllersWithViews();
+
+            builder.Services.AddScoped<IDbConnection>((s) =>
+            {
+                IDbConnection conn = new MySqlConnection(builder.Configuration.GetConnectionString("hats"));
+                conn.Open();
+                return conn;
+            });
+
+            builder.Services.AddTransient<IHatRepository, HatRepository>();
 
             var app = builder.Build();
 

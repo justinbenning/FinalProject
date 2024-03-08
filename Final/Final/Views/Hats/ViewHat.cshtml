@@ -1,0 +1,36 @@
+﻿@model Hats
+
+<h3>@Model.HatsTeamLocation @Model.HatsTeamName Information</h3>
+
+<table class="table">
+    <tr>
+        <th>ID</th>
+        <th>Team Location</th>
+        <th>Team Name</th>
+        <th>Primary Color</th>
+        <th>Secondary Color</th>
+    </tr>
+    
+        <tr>
+            <td>@Model.idHats</td>
+            <td>@Model.HatsTeamLocation</td>
+            <td>@Model.HatsTeamName</td>
+            <td>@Model.PrimaryColor</td>
+            <td>@Model.SecondaryColor</td>
+        </tr>
+</table>
+
+<div class="buttons">
+    <div style="display: block">
+    <a href="/Hats/UpdateHat/@Model.idHats">Update this hat</a>
+</div>
+
+<div "style="display: block">
+
+    @using (Html.BeginForm("DeleteHat", "Hats", "Post"))
+    {
+        <input type="hidden" asp-for="idHats" value="@Model.idHats" />
+        <input type="submit" onclick="return confirm('Did you really get rid of such a great hat?')" value="Delete this hat" />
+    }
+</div>
+</div>

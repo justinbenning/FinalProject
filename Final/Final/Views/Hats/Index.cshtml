@@ -1,0 +1,28 @@
+﻿@model IEnumerable<Hats>
+
+<h2>Hats</h2>
+
+<div style="display: block">
+    <a href="/Hats/InsertHat">Add a new hat</a>
+</div>
+
+<table class="table">
+    <tr>
+        <th>ID</th>
+        <th>Team Location</th>
+        <th>Team Name</th>
+        <th>Primary Color</th>
+        <th>Secondary Color</th>
+    </tr>
+
+    @foreach (var hats in @Model)
+    {
+        <tr>
+            <td><a href=/Hats/ViewHat/@hats.idHats>@hats.idHats</a></td>
+            <td>@hats.HatsTeamLocation</td>
+            <td>@hats.HatsTeamName</td>
+            <td>@hats.PrimaryColor</td>
+            <td>@hats.SecondaryColor</td>
+        </tr>
+    }
+</table>

@@ -1,0 +1,22 @@
+﻿@model Hats
+
+<h2>Add a new hat</h2>
+
+@using (Html.BeginForm("InsertHatToDatabase", "Hats", "Post"))
+{
+    <input asp-for="idHats" type="hidden" value="" />
+
+    <label asp-for="HatsTeamLocation" class="control-label">Team Location</label>
+    <input type="text" name="HatsTeamLocation" class="form-control" value="" />
+
+    <label asp-for="HatsTeamName" class="control-label">Team Name</label>
+    <input type="text"  name="Price" class="form-control" />
+
+    <label asp-for="PrimaryColor" class="control-label">Primary Color</label>
+    <input type="text" name="PrimaryColor" class="form-control" />
+
+    <label asp-for="SecondaryColor" class="control-label">Secondary Color</label>
+    <input type="text" name="SecondaryColor" class="form-control" />
+
+    <input type="submit" value="Create Hat" class="btn btn-primary" />
+}
