@@ -10,6 +10,6 @@ namespace Final
         Hats GetHatsById(int id);
         void UpdateHats(Hats hats);
         public void InsertHat(Hats hatToInsert);
-        public void DeleteHat(Hats hat);
+        public void DeleteHat(int id);
     }
 }

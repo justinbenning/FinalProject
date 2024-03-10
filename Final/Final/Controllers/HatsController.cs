@@ -48,9 +48,9 @@ namespace Final.Controllers
             repo.InsertHat(hat);
             return RedirectToAction("Index");
         }
-        public IActionResult DeleteHat(Hats hat)
+        public IActionResult DeleteHat(int idHats)
         {
-            repo.DeleteHat(hat);
+            repo.DeleteHat(idHats);
             return RedirectToAction("Index");
         }
     }

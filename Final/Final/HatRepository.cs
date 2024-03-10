@@ -37,9 +37,9 @@ namespace Final
                 new { hatsteamlocation = hatToInsert.HatsTeamLocation, hatsteamname = hatToInsert.HatsTeamName, primarycolor = hatToInsert.PrimaryColor,
                     secondarycolor = hatToInsert.SecondaryColor });
         }
-        public void DeleteHat(Hats hat)
+        public void DeleteHat(int id)
         {
-            _conn.Execute("DELETE FROM Hats WHERE idHats = @id;", new {id = hat.idHats});
+            _conn.Execute("DELETE FROM Hats WHERE idHats = @id;", new {id = id});
         }
 
     
