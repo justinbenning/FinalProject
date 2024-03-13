@@ -1,0 +1,30 @@
+﻿@model IEnumerable<Shoes>
+
+<h2>Shoes</h2>
+
+<div style="display: block">
+    <a href="/Shoes/InsertPair">Add a new pair</a>
+</div>
+
+<table class="table">
+    <tr>
+        <th>ID</th>
+        <th>Brand</th>
+        <th>Model</th>
+        <th>Size</th>
+        <th>Primary Color</th>
+        <th>Secondary Color</th>
+    </tr>
+
+    @foreach (var shoes in @Model)
+    {
+        <tr>
+            <td><a href=/Shoes/ViewShoes/@shoes.idShoes>@shoes.idShoes</a></td>
+            <td>@shoes.Brand</td>
+            <td>@shoes.Model</td>
+            <td>@shoes.Size</td>
+            <td>@shoes.PrimaryColor</td>
+            <td>@shoes.SecondaryColor</td>
+        </tr>
+    }
+</table>

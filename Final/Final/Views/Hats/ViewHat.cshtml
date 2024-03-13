@@ -29,7 +29,6 @@
 
     @using (Html.BeginForm("DeleteHat", "Hats", FormMethod.Post))
     {
-        @* <input type="hidden" asp-for="idHats" value="@Model.idHats" /> *@
         <input type="hidden" name="idHats" value="@Model.idHats"/>
         <input type="submit" onclick="return confirm('Did you really get rid of such a great hat?')" value="Delete this hat" />
     }

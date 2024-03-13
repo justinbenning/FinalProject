@@ -1,0 +1,25 @@
+﻿@model Shoes
+
+<h2>Add a new pair of kicks</h2>
+
+@using (Html.BeginForm("InsertShoesToDatabase", "Shoes", "Post"))
+{
+    <input asp-for="idShoes" type="hidden" value="" />
+
+    <label asp-for="Brand" class="control-label">Shoe Brand</label>
+    <input type="text" name="Brand" class="form-control" value="" />
+
+    <label asp-for="Model" class="control-label">Shoe Model</label>
+    <input type="text" name="Model" class="form-control" />
+
+    <label asp-for="Size" class="control-label">Size</label>
+    <input type="number" name="Size" class="form-control" />
+
+    <label asp-for="PrimaryColor" class="control-label">Primary Color</label>
+    <input type="text" name="PrimaryColor" class="form-control" />
+
+    <label asp-for="SecondaryColor" class="control-label">Secondary Color</label>
+    <input type="text" name="SecondaryColor" class="form-control" />
+
+    <input type="submit" value="Create Pair" class="btn btn-primary" />
+}

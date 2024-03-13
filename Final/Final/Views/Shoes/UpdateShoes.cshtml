@@ -1,0 +1,25 @@
+﻿@model Shoes
+
+<h2>Update @Model.Model with @Model.PrimaryColor Information</h2>
+
+@using (Html.BeginForm("UpdateShoesToDatabase", "Shoes", "Post"))
+{
+    <input asp-for="idShoes" type="hidden" value="@Model.idShoes" />
+
+    <label asp-for="Brand" class="control-label">Brand</label>
+    <input type="text" name="Brand" class="form-control" value="@Model.Brand" />
+
+    <label asp-for="Model" class="control-label">Model</label>
+    <input type="text" name="Model" class="form-control" value="@Model.Model" />
+   
+    <label asp-for="Size" class="control-label">Size</label>
+    <input type="number" name="Size" class="form-control" value="@Model.Size" />
+    
+    <label asp-for="PrimaryColor" class="control-label">Primary Color</label>
+    <input type="text" name="PrimaryColor" class="form-control" value="@Model.PrimaryColor" />
+
+    <label asp-for="SecondaryColor" class="control-label">Secondary Color</label>
+    <input type="text" name="SecondaryColor" class="form-control" value="@Model.SecondaryColor" />
+
+    <input type="submit" value="Update Pair" class="btn btn-primary" />
+   }

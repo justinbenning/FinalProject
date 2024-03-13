@@ -23,6 +23,8 @@ namespace Final
 
             builder.Services.AddTransient<IHatRepository, HatRepository>();
 
+            builder.Services.AddTransient<IShoesRepository, ShoesRepository>();
+
             var app = builder.Build();
 
             // Configure the HTTP request pipeline.
