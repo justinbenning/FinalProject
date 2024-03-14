@@ -22,7 +22,7 @@ namespace Final
         public Hats GetHatsById(int id)
         {
             return _conn.QuerySingle<Hats>("SELECT * FROM Hats WHERE idHats = @id", new { id = id });
-            //select * from hats where idHats = 1 and Exists (select * from shoes where shoes.primarycolor = hats.primarycolor or shoes.secondarycolor = hats.primarycolor);
+            //SELECT hats.*, shoes.* FROM hats JOIN shoes ON shoes.primarycolor = hats.primarycolor OR shoes.secondarycolor = hats.primarycolor where hats.idHats = @id , new {id = id};
         }
         public void UpdateHats(Hats hats)
         {

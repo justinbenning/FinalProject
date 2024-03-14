@@ -19,6 +19,17 @@
             <td>@Model.SecondaryColor</td>
         </tr>
 </table>
+@* 
+    @if (Model.Shoes !=null)
+    <tr>
+    <td>@Model.Shoes.idHats</td>
+    <td>@Model.Shoes.HatsTeamLocation</td>
+    <td>@Model.Shoes.HatsTeamName</td>
+    <td>@Model.Shoes.PrimaryColor</td>
+    <td>@Model.Shoes.SecondaryColor</td>
+</tr> *@
+</table>
+
 
 <div class="buttons">
     <div style="display: block">
@@ -34,3 +45,24 @@
     }
 </div>
 </div>
+@* 
+    @foreach (var shoes in Model.Shoes)
+    <table class="table">
+    <tr>
+        <th>ID</th>
+        <th>Brand</th>
+        <th>Model</th>
+        <th>Size</th>
+        <th>Primary Color</th>
+        <th>Secondary Color</th>
+    </tr>
+
+    <tr>
+        <td>@shoes.idShoes</td>
+        <td>@shoes.Brand</td>
+        <td>@shoes.Model</td>
+        <td>@shoes.Size</td>
+        <td>@shoes.PrimaryColor</td>
+        <td>@shoes.SecondaryColor</td>
+    </tr>
+</table> *@
