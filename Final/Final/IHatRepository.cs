@@ -11,5 +11,6 @@ namespace Final
         void UpdateHats(Hats hats);
         public void InsertHat(Hats hatToInsert);
         public void DeleteHat(int id);
+        public void UploadHatImage(int hatId, byte[] imageData);
     }
 }

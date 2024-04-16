@@ -1,33 +1,28 @@
 ﻿@model Hats
 
-<h3>@Model.HatsTeamLocation @Model.HatsTeamName Information</h3>
+
 
 <table class="table">
     <tr>
-        <th>ID</th>
         <th>Team Location</th>
         <th>Team Name</th>
         <th>Primary Color</th>
         <th>Secondary Color</th>
+        <th>DateLastWorn</th>
+        <th>Image</th>
     </tr>
     
         <tr>
-            <td>@Model.idHats</td>
+            @* <td>@Model.idHats</td> *@
             <td>@Model.HatsTeamLocation</td>
             <td>@Model.HatsTeamName</td>
             <td>@Model.PrimaryColor</td>
             <td>@Model.SecondaryColor</td>
+            <td>@Model.DateLastWorn</td>
+            <td><img src="@Model.LinkToImage" alt="Image" style="max-width: 3in;" /></td>
         </tr>
-</table>
-@* 
-    @if (Model.Shoes !=null)
-    <tr>
-    <td>@Model.Shoes.idHats</td>
-    <td>@Model.Shoes.HatsTeamLocation</td>
-    <td>@Model.Shoes.HatsTeamName</td>
-    <td>@Model.Shoes.PrimaryColor</td>
-    <td>@Model.Shoes.SecondaryColor</td>
-</tr> *@
+    
+   
 </table>
 
 
@@ -45,24 +40,5 @@
     }
 </div>
 </div>
-@* 
-    @foreach (var shoes in Model.Shoes)
-    <table class="table">
-    <tr>
-        <th>ID</th>
-        <th>Brand</th>
-        <th>Model</th>
-        <th>Size</th>
-        <th>Primary Color</th>
-        <th>Secondary Color</th>
-    </tr>
-
-    <tr>
-        <td>@shoes.idShoes</td>
-        <td>@shoes.Brand</td>
-        <td>@shoes.Model</td>
-        <td>@shoes.Size</td>
-        <td>@shoes.PrimaryColor</td>
-        <td>@shoes.SecondaryColor</td>
-    </tr>
-</table> *@
+ 
+    

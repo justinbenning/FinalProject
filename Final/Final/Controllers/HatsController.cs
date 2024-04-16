@@ -9,26 +9,28 @@ namespace Final.Controllers
 {
     public class HatsController : Controller
     {
-        private readonly IHatRepository repo;
+        private readonly IHatRepository _repo;
+
+       
 
         public HatsController(IHatRepository repo)
         {
-            this.repo = repo;
+            this._repo = repo;
         }
 
         public IActionResult Index()
         {
-            var products = repo.GetAllHats();
+            var products = _repo.GetAllHats();
             return View(products);
         }
         public IActionResult ViewHat(int id)
         {
-            var hat = repo.GetHatsById(id);
+            var hat = _repo.GetHatsById(id);
             return View(hat);
         }
         public IActionResult UpdateHat(int id)
         {
-            Hats hat = repo.GetHatsById(id);
+            Hats hat = _repo.GetHatsById(id);
             if (hat == null)
             {
                 return View("ProductNotFound");
@@ -37,7 +39,7 @@ namespace Final.Controllers
         }   
         public IActionResult UpdateHatToDatabase(Hats hat)
         {
-            repo.UpdateHats(hat);
+            _repo.UpdateHats(hat);
 
             return RedirectToAction("ViewHat", new { id = hat.idHats });
         }
@@ -45,13 +47,15 @@ namespace Final.Controllers
         { return View("InsertHat"); }
         public IActionResult InsertHatToDatabase(Hats hat)
         {
-            repo.InsertHat(hat);
+            _repo.InsertHat(hat);
             return RedirectToAction("Index");
         }
+
         public IActionResult DeleteHat(int idHats)
         {
-            repo.DeleteHat(idHats);
+            _repo.DeleteHat(idHats);
             return RedirectToAction("Index");
         }
+        
     }
 }

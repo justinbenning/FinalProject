@@ -6,13 +6,15 @@
     <a href="/Hats/InsertHat">Add a new hat</a>
 </div>
 
-<table class="table">
+<table id="hatTable" class="table">
     <tr>
-        <th>ID</th>
-        <th>Team Location</th>
-        <th>Team Name</th>
-        <th>Primary Color</th>
-        <th>Secondary Color</th>
+        <th><a href="#" onclick="sortTable(0)">ID</a></th>
+        <th><a href="#" onclick="sortTable(1)">Team Location</a></th>
+        <th><a href="#" onclick="sortTable(2)">Team Name</a></th>
+        <th><a href="#" onclick="sortTable(3)">Primary Color</a></th>
+        <th><a href="#" onclick="sortTable(4)">Secondary Color</a></th>
+        <th><a href="#" onclick="sortTable(5)">Date Last Worn</a></th>
+        <th>Image</th>
     </tr>
 
     @foreach (var hats in @Model)
@@ -23,6 +25,35 @@
             <td>@hats.HatsTeamName</td>
             <td>@hats.PrimaryColor</td>
             <td>@hats.SecondaryColor</td>
+            <td>@hats.DateLastWorn</td>
+            <td><img src="@hats.LinkToImage" alt="Image" style="max-width: 1.5in;" /></td>
         </tr>
     }
 </table>
+
+@section scripts {
+    <script>
+        function sortTable(columnIndex) {
+            var table, rows, switching, i, x, y, shouldSwitch;
+            table = document.getElementById("hatTable");
+            switching = true;
+            while (switching) {
+                switching = false;
+                rows = table.getElementsByTagName("tr");
+                for (i = 1; i < (rows.length - 1); i++) {
+                    shouldSwitch = false;
+                    x = rows[i].getElementsByTagName("td")[columnIndex];
+                    y = rows[i + 1].getElementsByTagName("td")[columnIndex];
+                    if (x.innerHTML.toLowerCase() > y.innerHTML.toLowerCase()) {
+                        shouldSwitch = true;
+                        break;
+                    }
+                }
+                if (shouldSwitch) {
+                    rows[i].parentNode.insertBefore(rows[i + 1], rows[i]);
+                    switching = true;
+                }
+            }
+        }
+    </script>
+}
