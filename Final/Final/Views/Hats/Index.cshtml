@@ -44,7 +44,18 @@
                     shouldSwitch = false;
                     x = rows[i].getElementsByTagName("td")[columnIndex];
                     y = rows[i + 1].getElementsByTagName("td")[columnIndex];
-                    if (x.innerHTML.toLowerCase() > y.innerHTML.toLowerCase()) {
+
+                    
+                    if (columnIndex === 0) {
+                        x = parseFloat(x.innerText);
+                        y = parseFloat(y.innerText);
+                    } else {
+                        
+                        x = x.innerText.toLowerCase();
+                        y = y.innerText.toLowerCase();
+                    }
+
+                    if (x > y) {
                         shouldSwitch = true;
                         break;
                     }

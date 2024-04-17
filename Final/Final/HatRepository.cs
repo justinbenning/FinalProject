@@ -52,10 +52,5 @@ namespace Final
             _conn.Execute("DELETE FROM Hats WHERE idHats = @id;", new { id = id });
         }
 
-        public void UploadHatImage(int hatId, byte[] imageData)
-        {
-            _conn.Execute("UPDATE Hats SET Image = @imageData WHERE idHats = @id", new { imageData, id = hatId });
-        }
-
     }
 }
